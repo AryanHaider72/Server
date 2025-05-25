@@ -98,7 +98,12 @@ app.post('/component/sidebar', authMiddleware, (req, res) => {
 
 // Login routes
 app.post('/login', (req, res) => {
-        const { email, password } = req.body;
+        console.log('Login request body:', req.body);
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ message: 'Email and password required' });
+    }
     
     // Check for admin login
     if (email === 'admin@gmail.com' && password === 'qwerty') {
