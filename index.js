@@ -98,8 +98,6 @@ app.post('/component/sidebar', authMiddleware, (req, res) => {
 
 // Login routes
 app.post('/login', (req, res) => {
-    
-    if(req.method==='POST'){
         const { email, password } = req.body;
     
     // Check for admin login
@@ -115,7 +113,6 @@ app.post('/login', (req, res) => {
             return res.status(200).json({ message: 'Welcome Admin' });
         });
         return; // Prevents double response
-    }
     }
 
     // Regular user login
