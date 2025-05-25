@@ -69,7 +69,13 @@ function authMiddleware(req, res, next) {
 }
 
 app.post('/', (req, res) => {
-  res.send('Using Post Request');
+  try {
+    console.log("POST body:", req.body);
+    res.send('POST request received');
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.get('/', (req, res) => {
