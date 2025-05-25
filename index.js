@@ -73,6 +73,7 @@ app.post('/', (req, res) => {
     res.send('Hello World!');
 });
 
+
 // Sidebar route with authentication
 app.post('/component/sidebar', authMiddleware, (req, res) => {
     const auth =  req.session.user;
