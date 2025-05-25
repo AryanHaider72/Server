@@ -67,7 +67,10 @@ function authMiddleware(req, res, next) {
         res.status(401).json({ message: "Unauthorized. Please log in." });
     }
 }
-
+app.use((req, res, next) => {
+  console.log(`Received ${req.method} request at ${req.url}`);
+  next();
+});
 app.post('/', (req, res) => {
   try {
     console.log("POST body:", req.body);
