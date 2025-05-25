@@ -68,13 +68,15 @@ function authMiddleware(req, res, next) {
     }
 }
 
-// Routes
 app.post('/', (req, res) => {
-    res.send('Hello World!');
+  res.send('Using Post Request');
 });
+
 app.get('/', (req, res) => {
-    res.send('Using Get Request');
+  res.send('Using Get Request');
 });
+
+
 // Sidebar route with authentication
 app.post('/component/sidebar', authMiddleware, (req, res) => {
     const auth =  req.session.user;
@@ -640,5 +642,5 @@ app.post("/component/logout", (req, res) => {
 
 // Start the server
 app.listen(8080, () => {
-    console.log('Server is running on port 8080');
+  console.log(`Server is running on 8080`);
 });
