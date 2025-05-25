@@ -10,7 +10,7 @@ const path = require('path');
 const fs = require('fs');
 const salt = 10;
 const app = express();
-
+const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(cookieParser());
 
@@ -647,6 +647,6 @@ app.post("/component/logout", (req, res) => {
 
 
 // Start the server
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log(`Server is running on 8080`);
 });
