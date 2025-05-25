@@ -124,6 +124,7 @@ app.post('/login', (req, res) => {
     const query2 = "SELECT * FROM account WHERE email = ?";
     db.query(query2, [email], (err, row) => {
         if (err) {
+             console.error('Database query error:', err);
             return res.status(500).json({ message: "Database error", error: err.message });
         }
 
