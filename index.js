@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 // CORS configuration
 app.use(cors({
-    origin: 'http://localhost:3000', // Your frontend's URL
+    origin: 'https://coursesuggestion-production.up.railway.app', // Your frontend's URL
     credentials: true, 
 }));
 const sessionStore = new MySQLStore({}, db);

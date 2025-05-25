@@ -4,8 +4,8 @@
   "description": "Backend server with Express, MySQL, bcrypt, and sessions",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "dev": "supervisor server/index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "engines": {
     "node": ">=16"
