@@ -169,10 +169,10 @@ app.post('/register', (req, res) => {
     const { username, email, password } = req.body;
 
     // Hash the password
-    bcrypt.hash(password, salt, (err, hash) => {
-        if (err) {
-            return res.status(500).json({ message: "Bcrypt hash failed", error: err.message });
-        }
+    // bcrypt.hash(password, salt, (err, hash) => {
+    //     if (err) {
+    //         return res.status(500).json({ message: "Bcrypt hash failed", error: err.message });
+    //     }
 
         // Check if the email already exists
         const query2 = "SELECT * FROM account WHERE email = ?";
@@ -185,7 +185,7 @@ app.post('/register', (req, res) => {
                 return res.status(400).json({ message: "Email already exists" });
             } else {
                 const query = "INSERT INTO account (username, email, password) VALUES (?, ?, ?)";
-                db.query(query, [username, email, hash], (err) => {
+                db.query(query, [username, email, password], (err) => {
                     if (err) {
                         return res.status(500).json({ message: "Error inserting user", error: err.message });
                     }
