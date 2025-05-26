@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(cookieParser());
 
+
 // CORS configuration
 app.use(cors({
     origin: 'https://coursesuggestion-production.up.railway.app', // Your frontend's URL
@@ -98,6 +99,10 @@ app.post('/component/sidebar', authMiddleware, (req, res) => {
 
 // Login routes
 app.post('/login', (req, res) => {
+    if (!db) {
+    console.error("❌ DB is not connected!");
+    return res.status(500).json({ message: "No DB connection" });
+}
         console.log('Login request body:', req.body);
     const { email, password } = req.body;
 
