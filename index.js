@@ -194,7 +194,6 @@ app.post('/register', (req, res) => {
             }
         });
     });
-});
 
 // Dashboard route with user results (authentication required)
 app.post('/component/Dashboard', authMiddleware, (req, res) => {
